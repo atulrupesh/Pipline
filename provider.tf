@@ -12,3 +12,8 @@ provider "azurerm" {
   features {}
   subscription_id = "febef730-8d0e-4e87-b84a-70939f0ce0e0"
 }
+
+resource "azurerm_resource_group" "rg"2 {
+  name     = "rg-terraform"
+  location = "West Europe"
+}
