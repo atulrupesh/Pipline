@@ -15,4 +15,3 @@ resource "azurerm_storage_account" "kumaratula" {
   account_replication_type = "LRS"
   
 }
-efefhfhihge
