@@ -62,7 +62,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     environment:
-      name: production
+      name: deV
 
     steps:
       - name: Checkout Repository
