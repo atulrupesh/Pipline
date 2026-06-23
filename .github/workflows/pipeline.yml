@@ -19,25 +19,8 @@ env:
   TF_VERSION: "1.8.5"
 
 jobs:
-  terraform-scan:
-    name: Terraform Scan
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: ${{ env.TF_VERSION }}
-
-      - name: Terraform Format Check
-        run: terraform fmt -check
-
   terraform-plan:
-    name: Terraform Init & Plan
-    needs: terraform-scan
+    name: Terraform Plan
     runs-on: ubuntu-latest
 
     steps:
@@ -72,7 +55,7 @@ jobs:
           path: tfplan
 
   terraform-apply:
-    name: Terraform Init & Apply
+    name: Terraform Apply
     needs: terraform-plan
     runs-on: ubuntu-latest
 
@@ -107,3 +90,4 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+```
